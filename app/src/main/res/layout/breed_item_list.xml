@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="120dp">
+
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:text="Name"
+            android:textColor="@android:color/black"
+            />
+
+    <TextView
+            android:id="@+id/origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:textSize="13sp"
+            android:layout_margin="5dp"
+            android:textStyle="italic"
+            android:text="Origin"
+            android:textColor="@android:color/black"
+    />
+
+    <TextView
+            android:id="@+id/affection_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:textSize="13sp"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:text="Level"
+            android:textColor="@android:color/black"
+    />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/black"/>
+
+</LinearLayout>
