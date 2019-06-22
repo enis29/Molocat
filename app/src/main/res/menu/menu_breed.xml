@@ -3,8 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <item
             android:id="@+id/action_sort_by_name"
-            android:title="Sort by name"/>
+            android:title="@string/field_sort_name"/>
     <item
             android:id="@+id/action_sort_by_origin"
-            android:title="Sort by origin"/>
+            android:title="@string/field_sort_origin"/>
 </menu>

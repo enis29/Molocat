@@ -17,6 +17,8 @@ import com.enkapp.molocat.ui.detail.DetailActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
+import com.enkapp.molocat.extension.isConnected
 
 class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
 
@@ -30,7 +32,12 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
 
         bundle = Bundle()
         breedShortViewModel = ViewModelProviders.of(this).get(BreedShortViewModel::class.java)
-        breedShortViewModel.getBreeds()
+
+        if(isConnected) {
+            breedShortViewModel.getBreeds()
+        }else {
+            Toast.makeText(this, getString(R.string.warning_no_connection), Toast.LENGTH_LONG).show()
+        }
 
         if(adapter==null){
             adapter = BreedAdapter(this, emptyList<BreedShort>().toMutableList(), this)
@@ -57,14 +64,17 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
             R.id.action_sort_by_name -> {
                 adapter?.list?.sortBy { breedShort -> breedShort.name}
                 adapter?.notifyDataSetChanged()
+                sort.text = getString(R.string.field_sort_name)
                 return true
             }
             R.id.action_sort_by_origin -> {
                 adapter?.list?.sortBy { breedShort -> breedShort.origin}
                 adapter?.notifyDataSetChanged()
+                sort.text = getString(R.string.field_sort_origin)
                 return true
             }
         }
+        item.isChecked = true
         return super.onOptionsItemSelected(item)
     }
 

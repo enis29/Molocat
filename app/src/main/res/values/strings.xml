@@ -4,6 +4,8 @@
     <string name="field_from">from&#160;</string>
     <string name="field_yes">yes</string>
     <string name="field_no">no</string>
+    <string name="field_sort_name">Sort by name</string>
+    <string name="field_sort_origin">Sort by origin</string>
 
     <!-- values in string -->
     <string name="field_country_code">Country code :&#160;</string>
@@ -29,4 +31,8 @@
     <string name="field_health_issues">Health issues :&#160;</string>
     <string name="field_hypoallergenic">Hypoallergenic :&#160;</string>
     <string name="field_rare">Rare :&#160;</string>
+
+
+    <string name="warning_no_connection">You need an internet connection to use this application</string>
+    <string name="field_search">Search...</string>
 </resources>
