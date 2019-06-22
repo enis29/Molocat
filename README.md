@@ -1,4 +1,4 @@
-# Molotov
+# Molocat
 
 Application faisant appel à l'api https://docs.thecatapi.com/api-reference/
 
