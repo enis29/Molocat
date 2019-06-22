@@ -4,13 +4,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
         tools:context=".ui.breed.MainActivity">
 
     <TextView
             android:id="@+id/title_detail"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text=""
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,6 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
+                    android:textColor="@color/colorPrimary"
                     android:gravity="center"/>
 
             <LinearLayout
@@ -57,18 +59,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_origin"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_origin"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_origin"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -78,18 +78,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_life_span"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_life_span"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_life_span"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -99,18 +97,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_temperament"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_temperament"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_temperament"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -120,18 +116,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_weight"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_weight"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_weight"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -141,18 +135,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_hairless"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_hairless"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_hairless"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -162,18 +154,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_health_issues"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_health_issues"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_health_issues"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -183,18 +173,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_hypoallergenic"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_hypoallergenic"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_hypoallergenic"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -204,18 +192,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_rare"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_rare"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_rare"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -225,18 +211,16 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_wikipedia"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_wikipedia"/>
 
                 <TextView
+                        style="@style/DetailItemValue"
                         android:id="@+id/tv_wikipedia"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold|italic"/>
+                        android:layout_height="match_parent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -246,11 +230,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_adaptability"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_adaptability"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -267,11 +250,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_affection_level"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_affection_level"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -288,11 +270,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_child_friendly"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_child_friendly"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -309,18 +290,18 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_dog_friendly"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_dog_friendly"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rb_dog_friendly"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        />
             </LinearLayout>
 
             <LinearLayout
@@ -330,18 +311,18 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_energy_level"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_energy_level"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rb_energy_level"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -351,11 +332,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_grooming"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_grooming"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -372,11 +352,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_intelligence"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_intelligence"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -394,11 +373,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_shedding_level"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_shedding_level"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -415,11 +393,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_social_needs"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_social_needs"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
@@ -436,11 +413,10 @@
                     android:layout_marginBottom="8dp">
 
                 <TextView
+                        style="@style/DetailItem"
                         android:layout_width="160dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/field_stranger_friendly"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/field_stranger_friendly"/>
 
                 <RatingBar
                         style="?android:attr/ratingBarStyleSmall"

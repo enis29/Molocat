@@ -1,7 +1,6 @@
 package com.enkapp.molocat.ui.breed
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,9 @@ import com.enkapp.molocat.extension.customStartActivity
 import com.enkapp.molocat.model.BreedShort
 import com.enkapp.molocat.ui.BreedShortViewModel
 import com.enkapp.molocat.ui.detail.DetailActivity
-
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
 
 class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
 
@@ -37,8 +38,11 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
             breeds_view.layoutManager = LinearLayoutManager(this)
         }
 
+        initSearchView()
+
         breedShortViewModel.breedShortLiveData.observe(this, Observer {
             adapter?.setBreedList(it)
+            search.visibility = View.VISIBLE
         })
     }
 
@@ -65,8 +69,19 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
     }
 
     override fun clickOnBreed(id: String?) {
-        Log.d("debugEnis", "id : $id")
         bundle.putSerializable(Constants.TAG_BUNDLE_ID, id)
         customStartActivity(this@MainActivity, DetailActivity::class.java, bundle)
+    }
+
+    private fun initSearchView(){
+        search.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+
+            override fun afterTextChanged(editable: Editable) {
+                adapter!!.filter.filter(editable.toString())
+            }
+        })
     }
 }

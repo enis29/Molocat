@@ -3,6 +3,6 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:color="@android:color/white"
           android:state_pressed="true" />
-    <item android:color="@color/colorGrey"
+    <item android:color="@android:color/black"
         android:state_pressed="false"/>
 </selector>
