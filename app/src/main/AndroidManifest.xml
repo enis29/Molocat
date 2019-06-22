@@ -11,7 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.breed.MainActivity">
+        <activity android:name=".ui.breed.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,7 +20,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.detail.DetailActivity">
+        <activity android:name=".ui.detail.DetailActivity"
+                  android:screenOrientation="portrait">
         </activity>
     </application>
 

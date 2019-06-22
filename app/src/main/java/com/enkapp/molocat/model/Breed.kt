@@ -13,6 +13,7 @@ data class Breed(
     val hairless : Int,
     val health_issues : Int,
     val hypoallergenic : Int,
+    val intelligence : Int,
     val life_span : String,
     val name : String,
     val origin : String,

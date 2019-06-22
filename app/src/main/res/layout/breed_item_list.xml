@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="120dp">
+              android:layout_height="160dp"
+              android:background="@drawable/selected_breed"
+              android:weightSum="100">
 
-    <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|start"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="20dp"
-            android:textStyle="bold"
-            android:text="Name"
-            android:textColor="@android:color/black"
-            />
+            android:layout_weight="80">
 
-    <TextView
-            android:id="@+id/origin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|start"
-            android:textSize="13sp"
-            android:layout_margin="5dp"
-            android:textStyle="italic"
-            android:text="Origin"
-            android:textColor="@android:color/black"
-    />
 
-    <TextView
-            android:id="@+id/affection_level"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center|start"
-            android:textSize="13sp"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            android:text="Level"
-            android:textColor="@android:color/black"
-    />
+        <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                />
 
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/black"/>
+        <TextView
+                android:id="@+id/origin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:textSize="13sp"
+                android:layout_margin="5dp"
+                android:textStyle="italic"
+                android:textColor="@android:color/black"
+        />
+
+        <TextView
+                android:id="@+id/temperament"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:textSize="13sp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="@drawable/selected_text_color"
+        />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorGrey"/>
+
+    </LinearLayout>
+
+    <ImageView android:layout_width="1dp"
+               android:layout_weight="10"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:background="@drawable/ic_keyboard_arrow_right_black"/>
 
 </LinearLayout>

@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Molocat</string>
+    <string name="title">Cat breeds</string>
+    <string name="field_from">from&#160;</string>
+    <string name="field_yes">yes</string>
+    <string name="field_no">no</string>
+
+    <!-- values in string -->
+    <string name="field_country_code">Country code :&#160;</string>
+    <string name="field_origin">Origin :&#160;</string>
+    <string name="field_life_span">Life span (in years) :&#160;</string>
+    <string name="field_temperament">Temperament :&#160;</string>
+    <string name="field_wikipedia">Wikipedia :&#160;</string>
+    <string name="field_weight">Weight (in kg) :&#160;</string>
+
+    <!-- values in int -->
+    <string name="field_adaptability">Adaptability :&#160;</string>
+    <string name="field_affection_level">Affection level :&#160;</string>
+    <string name="field_child_friendly">Child friendly :&#160;</string>
+    <string name="field_dog_friendly">Dog friendly :&#160;</string>
+    <string name="field_energy_level">Energy level :&#160;</string>
+    <string name="field_grooming">Grooming :&#160;</string>
+    <string name="field_intelligence">Intelligence :&#160;</string>
+    <string name="field_shedding_level">Shedding level :&#160;</string>
+    <string name="field_social_needs">Social needs :&#160;</string>
+    <string name="field_stranger_friendly">Stranger friendly :&#160;</string>
+
+    <string name="field_hairless">Hairless :&#160;</string>
+    <string name="field_health_issues">Health issues :&#160;</string>
+    <string name="field_hypoallergenic">Hypoallergenic :&#160;</string>
+    <string name="field_rare">Rare :&#160;</string>
 </resources>

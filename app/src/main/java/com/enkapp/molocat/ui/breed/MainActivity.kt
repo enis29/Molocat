@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
         breedShortViewModel.getBreeds()
 
         if(adapter==null){
-            adapter = BreedAdapter(emptyList<BreedShort>().toMutableList(), this)
+            adapter = BreedAdapter(this, emptyList<BreedShort>().toMutableList(), this)
             breeds_view.adapter = adapter
             breeds_view.layoutManager = LinearLayoutManager(this)
         }

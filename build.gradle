@@ -11,6 +11,8 @@ buildscript {
     ext.coroutine = '1.0.1'
     ext.lifecycle = '2.0.0'
 
+    ext.glide = '4.9.0'
+
 
 
     repositories {
