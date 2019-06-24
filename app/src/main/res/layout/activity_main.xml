@@ -8,15 +8,45 @@
         android:background="@color/colorMolotovYellow"
         tools:context=".ui.breed.MainActivity">
 
-    <TextView
-            android:id="@+id/title"
+    <RelativeLayout
+            android:id="@+id/layout_title"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="@string/title"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/Title"/>
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/btn_sort"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/ic_sort_black"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="top|end"/>
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/title"
+                android:drawableEnd="@drawable/ic_cat"
+                android:layout_centerInParent="true"
+                style="@style/Title"/>
+
+        <ImageView
+                android:id="@+id/btn_filter"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/ic_filter_list_black"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="24dp"
+                android:layout_centerVertical="true"
+                android:gravity="top|end"/>
+
+    </RelativeLayout>
 
     <TextView
             android:id="@+id/sort"
@@ -25,8 +55,10 @@
             android:layout_marginEnd="8dp"
             android:textSize="11sp"
             android:gravity="top|end"
-            app:layout_constraintTop_toTopOf="@id/title"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/layout_title"
+            app:layout_constraintBottom_toTopOf="@id/layout_title"
+            app:layout_constraintStart_toStartOf="parent"/>
 
 
     <EditText
@@ -40,7 +72,7 @@
             android:drawableStart="@drawable/ic_search_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title"/>
+            app:layout_constraintTop_toBottomOf="@id/layout_title"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/breeds_view"

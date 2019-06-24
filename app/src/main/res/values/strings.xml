@@ -4,6 +4,8 @@
     <string name="field_from">from&#160;</string>
     <string name="field_yes">yes</string>
     <string name="field_no">no</string>
+    <string name="field_select">Select</string>
+    <string name="field_cancel">Cancel</string>
     <string name="field_sort_name">Sort by name</string>
     <string name="field_sort_origin">Sort by origin</string>
 
@@ -35,4 +37,43 @@
 
     <string name="warning_no_connection">You need an internet connection to use this application</string>
     <string name="field_search">Search...</string>
+
+    <string-array name="array_sort">
+        <item>@string/field_sort_name</item>
+        <item>@string/field_sort_origin</item>
+    </string-array>
+
+
+    <string name="criteria_adaptability">Adaptability</string>
+    <string name="criteria_affection">Affection</string>
+    <string name="criteria_child_friendly">Child friendly</string>
+    <string name="criteria_dog_friendly">Dog friendly</string>
+    <string name="criteria_energy">Energy level</string>
+    <string name="criteria_grooming">Grooming</string>
+    <string name="criteria_intelligence">Intelligence</string>
+    <string name="criteria_shedding">Shedding</string>
+    <string name="criteria_social_needs">Social needs</string>
+    <string name="criteria_stranger_friendly">Stranger friendly</string>
+    <string name="criteria_hairless">Hairless</string>
+    <string name="criteria_health_issues">Health issues</string>
+    <string name="criteria_hypoallergenic">Hypoallergenic</string>
+    <string name="criteria_rare">Rare</string>
+
+    <string-array name="array_filter">
+        <item>@string/criteria_adaptability</item>
+        <item>@string/criteria_affection</item>
+        <item>@string/criteria_child_friendly</item>
+        <item>@string/criteria_dog_friendly</item>
+        <item>@string/criteria_energy</item>
+        <item>@string/criteria_grooming</item>
+        <item>@string/criteria_intelligence</item>
+        <item>@string/criteria_shedding</item>
+        <item>@string/criteria_social_needs</item>
+        <item>@string/criteria_stranger_friendly</item>
+        <item>@string/criteria_hairless</item>
+        <item>@string/criteria_health_issues</item>
+        <item>@string/criteria_hypoallergenic</item>
+        <item>@string/criteria_rare</item>
+    </string-array>
+
 </resources>

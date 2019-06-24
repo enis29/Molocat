@@ -1,7 +1,7 @@
 package com.enkapp.molocat.api
 
 import android.util.Log
-import com.enkapp.molocat.model.BreedShort
+import com.enkapp.molocat.model.Breed
 import com.enkapp.molocat.model.Detail
 import retrofit2.Response
 import java.io.IOException
@@ -33,7 +33,7 @@ class ApiService(private val api : ApiInterface) {
 
 
 
-    suspend fun getBreeds() : MutableList<BreedShort>?{
+    suspend fun getBreeds() : MutableList<Breed>?{
 
         val breedsResponse = safeCall(
             call = {api.getBreeds().await()},

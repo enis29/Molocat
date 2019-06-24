@@ -8,13 +8,13 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.enkapp.molocat.R
-import com.enkapp.molocat.model.BreedShort
+import com.enkapp.molocat.model.Breed
 
-class BreedAdapter(val context: Context, var list: MutableList<BreedShort>?, var listener: OnBreedClickListener) : RecyclerView.Adapter<BreedAdapter.BreedViewHolder>(), Filterable {
+class BreedAdapter(val context: Context, var list: MutableList<Breed>?, var listener: OnBreedClickListener) : RecyclerView.Adapter<BreedAdapter.BreedViewHolder>(), Filterable {
 
-    private var resultList: MutableList<BreedShort>? = null
+    private var resultList: MutableList<Breed>? = null
 
-    fun setBreedList(listUpdate: MutableList<BreedShort>?){
+    fun setBreedList(listUpdate: MutableList<Breed>?){
         list = listUpdate
         resultList = list
         notifyDataSetChanged()
@@ -26,7 +26,7 @@ class BreedAdapter(val context: Context, var list: MutableList<BreedShort>?, var
     }
 
     override fun onBindViewHolder(holder: BreedViewHolder, position: Int) {
-        val breed: BreedShort? = resultList?.get(position)
+        val breed: Breed? = resultList?.get(position)
         holder.bind(breed)
         holder.itemView.setOnClickListener {
             listener.clickOnBreed(resultList?.get(position)?.id)
@@ -45,9 +45,10 @@ class BreedAdapter(val context: Context, var list: MutableList<BreedShort>?, var
                         resultList = list
                     } else {
                         if(list?.isNotEmpty()!!) {
-                            val filteredList = emptyList<BreedShort>().toMutableList()
+                            val searchTmp = searchString.toLowerCase()
+                            val filteredList = emptyList<Breed>().toMutableList()
                             for (row in list!!.listIterator()) {
-                                if (row.name.toLowerCase().startsWith(searchString.toLowerCase())) {
+                                if (row.name.startsWith(searchTmp, true) || row.name.contains(" ".plus(searchTmp), true)) {
                                     filteredList.add(row)
                                 }
                             }
@@ -81,7 +82,7 @@ class BreedAdapter(val context: Context, var list: MutableList<BreedShort>?, var
             mTemperament = itemView.findViewById(R.id.temperament)
         }
 
-        fun bind(breed: BreedShort?) {
+        fun bind(breed: Breed?) {
             mName?.text = breed?.name
             mOrigin?.text = context.resources.getString(R.string.field_from).plus(breed?.origin)
             mTemperament?.text = breed?.temperament

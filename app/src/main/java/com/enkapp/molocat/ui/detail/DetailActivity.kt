@@ -10,12 +10,12 @@ import com.bumptech.glide.Glide
 import com.enkapp.molocat.R
 import com.enkapp.molocat.constant.Constants
 import com.enkapp.molocat.model.Detail
-import com.enkapp.molocat.ui.BreedShortViewModel
+import com.enkapp.molocat.ui.BreedViewModel
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity: AppCompatActivity() {
 
-    private lateinit var breedShortViewModel: BreedShortViewModel
+    private lateinit var breedViewModel: BreedViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +24,10 @@ class DetailActivity: AppCompatActivity() {
         val bundle = intent.getBundleExtra(Constants.TAG_BUNDLE)
         val breedId = bundle?.getSerializable(Constants.TAG_BUNDLE_ID) as String
 
-        breedShortViewModel = ViewModelProviders.of(this).get(BreedShortViewModel::class.java)
-        breedShortViewModel.getBreedById(breedId)
+        breedViewModel = ViewModelProviders.of(this).get(BreedViewModel::class.java)
+        breedViewModel.getBreedById(breedId)
 
-        breedShortViewModel.detailLiveData.observe(this, Observer {
+        breedViewModel.detailLiveData.observe(this, Observer {
             updateUI(it)
         })
     }

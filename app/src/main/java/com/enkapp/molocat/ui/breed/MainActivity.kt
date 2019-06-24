@@ -1,8 +1,6 @@
 package com.enkapp.molocat.ui.breed
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -11,71 +9,59 @@ import kotlinx.android.synthetic.main.activity_main.*
 import com.enkapp.molocat.R
 import com.enkapp.molocat.constant.Constants
 import com.enkapp.molocat.extension.customStartActivity
-import com.enkapp.molocat.model.BreedShort
-import com.enkapp.molocat.ui.BreedShortViewModel
 import com.enkapp.molocat.ui.detail.DetailActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.*
 import com.enkapp.molocat.extension.isConnected
+import com.enkapp.molocat.model.Breed
+import com.enkapp.molocat.ui.BreedViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
 
-    private lateinit var breedShortViewModel: BreedShortViewModel
+    private lateinit var breedViewModel: BreedViewModel
     private var adapter : BreedAdapter? = null
     private lateinit var bundle : Bundle
+
+    private lateinit var initialList : MutableList<Breed>
+
+    private var selectionSort = 0
+    private val emptyArray = intArrayOf()
+    private var selectionsFilter : IntArray = emptyArray
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         bundle = Bundle()
-        breedShortViewModel = ViewModelProviders.of(this).get(BreedShortViewModel::class.java)
+        breedViewModel = ViewModelProviders.of(this).get(BreedViewModel::class.java)
 
         if(isConnected) {
-            breedShortViewModel.getBreeds()
+            breedViewModel.getBreeds()
         }else {
             Toast.makeText(this, getString(R.string.warning_no_connection), Toast.LENGTH_LONG).show()
         }
 
         if(adapter==null){
-            adapter = BreedAdapter(this, emptyList<BreedShort>().toMutableList(), this)
+            adapter = BreedAdapter(this, emptyList<Breed>().toMutableList(), this)
             breeds_view.adapter = adapter
             breeds_view.layoutManager = LinearLayoutManager(this)
         }
 
         initSearchView()
 
-        breedShortViewModel.breedShortLiveData.observe(this, Observer {
-            adapter?.setBreedList(it)
+        breedViewModel.breedsLiveData.observe(this, Observer {
+            initialList = it
+            adapter?.setBreedList(initialList)
             search.visibility = View.VISIBLE
+            initListeners()
         })
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_breed, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_sort_by_name -> {
-                adapter?.list?.sortBy { breedShort -> breedShort.name}
-                adapter?.notifyDataSetChanged()
-                sort.text = getString(R.string.field_sort_name)
-                return true
-            }
-            R.id.action_sort_by_origin -> {
-                adapter?.list?.sortBy { breedShort -> breedShort.origin}
-                adapter?.notifyDataSetChanged()
-                sort.text = getString(R.string.field_sort_origin)
-                return true
-            }
-        }
-        item.isChecked = true
-        return super.onOptionsItemSelected(item)
     }
 
     override fun clickOnBreed(id: String?) {
@@ -93,5 +79,69 @@ class MainActivity : AppCompatActivity(), BreedAdapter.OnBreedClickListener {
                 adapter!!.filter.filter(editable.toString())
             }
         })
+    }
+
+    private fun initListeners(){
+        btn_sort.setOnClickListener {
+            MaterialDialog(this).show {
+                listItemsSingleChoice(R.array.array_sort, initialSelection = selectionSort) { _, index, _ ->
+                    if(selectionSort != index) {
+                        selectionSort = index
+                        sort(selectionSort)
+                    }
+                }
+            }
+        }
+        btn_filter.setOnClickListener {
+            MaterialDialog(this)
+                .cancelOnTouchOutside(true)
+                .title(R.string.title)
+                .positiveButton(R.string.field_select) {
+                    filter()
+                }
+                .negativeButton(R.string.field_cancel) {
+                    selectionsFilter = emptyArray
+                    noFilter()
+                }
+                .show {
+                    listItemsMultiChoice(R.array.array_filter, initialSelection = selectionsFilter) { _, array, _ ->
+                        selectionsFilter = array
+                    }
+                }
+        }
+    }
+
+    private fun sort(choice: Int){
+        when(choice){
+            0 -> {
+                adapter?.list?.sortBy { breedShort -> breedShort.name}
+            }
+            1 -> {
+                adapter?.list?.sortBy { breedShort -> breedShort.origin}
+            }
+        }
+        adapter?.notifyDataSetChanged()
+    }
+
+    private fun filter(){
+        GlobalScope.launch {
+            val list = adapter?.list?.filter {
+                    //Test
+                    breed -> breed.shedding_level>3
+            }
+            adapter?.setBreedList(list?.toMutableList())
+            filterWithList()
+        }
+
+        adapter?.notifyDataSetChanged()
+    }
+
+    private fun filterWithList(){
+
+    }
+
+    private fun noFilter(){
+        adapter?.setBreedList(initialList)
+        adapter?.notifyDataSetChanged()
     }
 }
